@@ -122,3 +122,95 @@ def test_integration_rejects_missing_carbon_hour():
 
     with pytest.raises(ValueError, match="No carbon data available"):
         calculate_emissions(workload, carbon)
+
+from src.data.hourly_emissions import allocate_hourly_emissions
+
+
+def test_hourly_emissions_split_task_across_boundary():
+    workload = pd.DataFrame([{
+        "job_name": "job1",
+        "task_name": "task1",
+        "start_time": 1800,
+        "duration_seconds": 3600,
+        "energy_kwh": 0.02,
+    }])
+
+    carbon = pd.DataFrame({
+        "timestamp": pd.to_datetime([
+            "2026-09-22 00:00:00+00:00",
+            "2026-09-22 01:00:00+00:00",
+        ]),
+        "carbon_intensity": [500.0, 700.0],
+    })
+
+    result = allocate_hourly_emissions(workload, carbon)
+
+    assert list(result["simulation_hour"]) == [0, 1]
+    assert list(result["energy_kwh"]) == [0.01, 0.01]
+    assert list(result["co2_g"]) == [5.0, 7.0]
+    assert abs(result["energy_kwh"].sum() - 0.02) < 1e-12
+
+
+def test_hourly_emissions_reject_task_outside_carbon_window():
+    workload = pd.DataFrame([{
+        "job_name": "job1",
+        "task_name": "task1",
+        "start_time": 3500,
+        "duration_seconds": 200,
+        "energy_kwh": 0.01,
+    }])
+
+    carbon = pd.DataFrame({
+        "timestamp": pd.to_datetime([
+            "2026-09-22 00:00:00+00:00",
+        ]),
+        "carbon_intensity": [500.0],
+    })
+
+    with pytest.raises(ValueError, match="outside"):
+        allocate_hourly_emissions(workload, carbon)
+
+def test_hourly_emissions_exact_hour_boundary():
+    workload = pd.DataFrame([{
+        "job_name": "job_boundary",
+        "task_name": "task_boundary",
+        "start_time": 3600,
+        "duration_seconds": 3600,
+        "energy_kwh": 0.02,
+    }])
+
+    carbon = pd.DataFrame({
+        "timestamp": pd.to_datetime([
+            "2026-09-22T00:00:00Z",
+            "2026-09-22T01:00:00Z",
+            "2026-09-22T02:00:00Z",
+        ]),
+        "carbon_intensity": [400.0, 500.0, 700.0],
+    })
+
+    result = allocate_hourly_emissions(workload, carbon)
+
+    assert len(result) == 1
+    assert result.iloc[0]["simulation_hour"] == 1
+    assert abs(result.iloc[0]["energy_kwh"] - 0.02) < 1e-12
+    assert abs(result.iloc[0]["co2_g"] - 10.0) < 1e-12
+
+
+def test_hourly_emissions_rejects_zero_duration():
+    workload = pd.DataFrame([{
+        "job_name": "job_zero",
+        "task_name": "task_zero",
+        "start_time": 3600,
+        "duration_seconds": 0,
+        "energy_kwh": 0.0,
+    }])
+
+    carbon = pd.DataFrame({
+        "timestamp": pd.to_datetime([
+            "2026-09-22T00:00:00Z",
+        ]),
+        "carbon_intensity": [500.0],
+    })
+
+    with pytest.raises(ValueError, match="duration_seconds"):
+        allocate_hourly_emissions(workload, carbon)
