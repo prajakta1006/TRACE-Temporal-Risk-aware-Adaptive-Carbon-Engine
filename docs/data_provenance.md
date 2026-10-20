@@ -125,4 +125,3 @@ Electricity Maps API reference: https://app.electricitymaps.com/docs/reference/c
 
 
 Add the original dataset download URL, retrieval date, API version, and applicable license when available.
-
