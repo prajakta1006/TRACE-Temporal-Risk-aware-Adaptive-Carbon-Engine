@@ -20,3 +20,7 @@ results/data/*
 .vscode/
 .DS_Store
 Thumbs.db
+
+# Generated exploratory analysis and forecasting outputs
+results/carbon_eda/
+results/forecasting/
