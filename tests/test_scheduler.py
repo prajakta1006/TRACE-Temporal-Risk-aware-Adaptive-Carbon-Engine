@@ -104,3 +104,61 @@ def test_long_running_task_can_be_selected_with_full_forecast_coverage():
 
     assert result is not None
     assert result["end_time"] > 4 * 3600
+    
+def test_baseline_carbon_uses_full_task_duration():
+    task = pd.Series({
+        "start_time": 3600,
+        "duration_seconds": 7200,
+        "cpu_cores": 2,
+        "energy_kwh": 0.1,
+    })
+
+    forecasts = pd.DataFrame({
+        "simulation_hour": [1, 2, 3],
+        "predicted_carbon_intensity": [600, 400, 400],
+        "upper_bound": [600, 400, 400],
+    })
+
+    result = select_task_candidate(
+        task=task,
+        forecasts=forecasts,
+        current_time=3600,
+        risk_weight=0,
+    )
+
+    assert result is not None
+    assert result["start_time"] == 7200.0
+    assert result["expected_savings_g"] == pytest.approx(10.0)
+
+def test_missing_baseline_forecast_raises_error():
+    task = create_task()
+
+    forecasts = pd.DataFrame({
+        "simulation_hour": [2, 3, 4, 5],
+        "predicted_carbon_intensity": [450, 400, 500, 550],
+        "upper_bound": [500, 450, 550, 600],
+    })
+
+    with pytest.raises(
+        ValueError,
+        match="complete baseline execution period"
+    ):
+        select_task_candidate(
+            task=task,
+            forecasts=forecasts,
+            current_time=3600,
+        )
+        
+def test_negative_forecast_values_are_rejected():
+    forecasts = create_forecasts()
+    forecasts.loc[0, "predicted_carbon_intensity"] = -10
+
+    with pytest.raises(
+        ValueError,
+        match="non-negative"
+    ):
+        select_task_candidate(
+            task=create_task(),
+            forecasts=forecasts,
+            current_time=3600,
+        )

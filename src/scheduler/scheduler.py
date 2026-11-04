@@ -97,18 +97,48 @@ def select_task_candidate(
             ]
         )
 
-    baseline_hour = int(float(task["start_time"]) // 3600)
+        # Calculate baseline carbon intensity across the full task duration.
+    baseline_start = float(task["start_time"])
+    baseline_end = baseline_start + float(task["duration_seconds"])
 
-    baseline_rows = forecast_data[
-        forecast_data["simulation_hour"] == baseline_hour
+    baseline_first_hour = int(baseline_start // 3600)
+    baseline_last_hour = int((baseline_end - 1e-9) // 3600)
+
+    baseline_hours = list(
+        range(baseline_first_hour, baseline_last_hour + 1)
+    )
+
+    baseline_forecasts = forecast_data[
+        forecast_data["simulation_hour"].isin(baseline_hours)
     ]
 
-    if baseline_rows.empty:
+    if set(baseline_forecasts["simulation_hour"]) != set(baseline_hours):
         raise ValueError(
-            "No forecast is available for the task's original execution hour."
+            "Forecast data must cover the complete baseline execution period."
         )
 
-    baseline = baseline_rows.iloc[0]
+    baseline_weights = []
+
+    for hour in baseline_hours:
+        overlap_start = max(baseline_start, hour * 3600)
+        overlap_end = min(baseline_end, (hour + 1) * 3600)
+        baseline_weights.append(overlap_end - overlap_start)
+
+    baseline_forecasts = baseline_forecasts.set_index(
+        "simulation_hour"
+    ).loc[baseline_hours]
+
+    baseline_total_duration = sum(baseline_weights)
+
+    baseline_predicted = (
+        baseline_forecasts["predicted_carbon_intensity"]
+        .mul(baseline_weights).sum() / baseline_total_duration
+    )
+
+    baseline_upper = (
+        baseline_forecasts["upper_bound"]
+        .mul(baseline_weights).sum() / baseline_total_duration
+    )
 
     candidates = generate_candidate_starts(
         task=task,
@@ -176,11 +206,9 @@ def select_task_candidate(
         # Calculate risk-adjusted carbon savings.
         benefit = calculate_carbon_benefit(
             energy_kwh=float(task["energy_kwh"]),
-            baseline_predicted=float(
-                baseline["predicted_carbon_intensity"]
-            ),
+            baseline_predicted=float(baseline_predicted),
             candidate_predicted=float(candidate_predicted),
-            baseline_upper=float(baseline["upper_bound"]),
+            baseline_upper=float(baseline_upper),
             candidate_upper=float(candidate_upper),
             risk_weight=risk_weight,
         )
