@@ -133,3 +133,13 @@ For staged runs, recovery, and the explicit full-scale command, read [the reprod
 ## Limitations and next steps
 
 The model uses assumed power, a short historical replay, incomplete source provenance, and an index-based workload/carbon timeline. It excludes facility energy, hardware embodied emissions, and several resource constraints. The result is a constrained simulation rather than measured production savings. Future work should use longer provenance-complete carbon histories, record live forecast issue times, measure system energy, test more workloads and regions, and evaluate uncertainty under temporal shift.
+
+## Local dashboard
+
+Start the read-only TRACE dashboard from the repository root with:
+
+```cmd
+py dashboard/server.py
+```
+
+Then open http://127.0.0.1:8000. The dashboard reads Phase 6 evaluation, historical forecast, validation, and independent ledger audit artifacts through a small Python standard-library server. The read-only endpoints are `/api/dashboard` and `/api/health`. It does not launch or modify a simulation. The frontend has no build step or additional Python dependencies. If artifacts are missing, the dashboard reports that rather than substituting demo metrics.

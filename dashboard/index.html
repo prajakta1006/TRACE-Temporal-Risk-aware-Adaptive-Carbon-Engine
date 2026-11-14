@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#202522"><title>TRACE — Carbon intelligence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/polish.css">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <a class="brand" href="#overview" aria-label="TRACE home"><span class="brand-mark">T</span><span class="brand-name">TRACE<small>CARBON INTELLIGENCE</small></span></a>
+    <div class="side-label">WORKSPACE</div>
+    <nav id="primary-nav" aria-label="Main navigation">
+      <a class="nav-link active" href="#overview" data-view="overview" title="Dashboard" aria-label="Dashboard"><span class="nav-icon">◫</span><span>Dashboard</span></a>
+      <a class="nav-link" href="#simulation" data-view="simulation" title="Simulation overview" aria-label="Simulation overview"><span class="nav-icon">◉</span><span>Simulation overview</span></a>
+      <a class="nav-link" href="#strategies" data-view="strategies" title="Scheduling strategies" aria-label="Scheduling strategies"><span class="nav-icon">⟳</span><span>Scheduling strategies</span></a>
+      <a class="nav-link" href="#forecasting" data-view="forecasting" title="Carbon forecasting" aria-label="Carbon forecasting"><span class="nav-icon">⌁</span><span>Carbon forecasting</span></a>
+      <a class="nav-link" href="#energy" data-view="energy" title="Energy analytics" aria-label="Energy analytics"><span class="nav-icon">ϟ</span><span>Energy analytics</span></a>
+      <a class="nav-link" href="#execution" data-view="execution" title="Task execution" aria-label="Task execution"><span class="nav-icon">▤</span><span>Task execution</span></a>
+      <a class="nav-link" href="#results" data-view="results" title="Results and comparison" aria-label="Results and comparison"><span class="nav-icon">▥</span><span>Results & comparison</span></a>
+      <a class="nav-link" href="#validation" data-view="validation" title="Independent validation" aria-label="Independent validation"><span class="nav-icon">✓</span><span>Independent validation</span></a>
+      <a class="nav-link" href="#reproducibility" data-view="reproducibility" title="Reproducibility" aria-label="Reproducibility"><span class="nav-icon">◎</span><span>Reproducibility</span></a>
+    </nav>
+    <div class="sidebar-bottom"><a class="nav-link" href="#reproducibility" data-view="reproducibility"><span class="nav-icon">⚙</span><span>Settings & provenance</span></a>
+      <div class="profile"><div class="avatar">T</div><div><b>TRACE research</b><small>Local experiment</small></div><span class="profile-more">···</span></div>
+    </div>
+  </aside>
+  <main class="main-content">
+    <header class="topbar"><div class="breadcrumb"><span class="crumb-dot"></span>Workspace <span class="slash">/</span> <b id="breadcrumb-current">Dashboard</b></div>
+      <div class="top-actions"><label class="search"><span>⌕</span><input id="global-search" type="search" placeholder="Search tasks, metrics…" aria-label="Search dashboard"></label><button class="icon-button" id="refresh" title="Refresh data" aria-label="Refresh data">↻</button><button class="notification" title="Data status" aria-label="Data status"><span></span>●</button></div>
+    </header>
+    <div id="loading-state" class="loading-state"><span class="loading-orb"></span>Reading local TRACE result artifacts…</div>
+    <div id="load-error" class="load-error" hidden>Experiment artifacts could not be loaded. Start the dashboard from the repository root with <code>py dashboard/server.py</code>.</div>
+    <section class="page-view active-view" id="view-overview" data-page="overview">
+      <section class="hero panel">
+        <div class="hero-copy"><div class="eyebrow"><span class="live-dot"></span>CARBON-AWARE COMPUTE · RESEARCH PREVIEW</div><h1>Intelligence for a<br><em>lower-carbon</em> workload.</h1><p>Temporal risk-aware scheduling meets the grid’s changing carbon signal. Explore what the completed TRACE experiment found.</p>
+          <a class="hero-cta" href="#results" data-view="results">Explore experiment <span>↗</span></a>
+          <div class="hero-meta"><span class="meta-icon">◷</span><span>Phase 6 experiment</span><i></i><span>IN-WE grid region</span></div>
+        </div>
+        <div class="hero-visual" aria-label="Illustration of carbon-aware computing"><div class="sun-glow"></div><div class="orbit orbit-a"></div><div class="orbit orbit-b"></div><div class="cloud cloud-one"></div><div class="cloud cloud-two"></div>
+          <div class="wind wind-a"><i></i><b></b><b></b><b></b></div><div class="wind wind-b"><i></i><b></b><b></b><b></b></div><div class="wind wind-c"><i></i><b></b><b></b><b></b></div>
+          <div class="terrain"><div class="terrain-top"></div><div class="terrain-side"></div><div class="server server-one"><i></i><i></i><i></i></div><div class="server server-two"><i></i><i></i><i></i></div><div class="solar-array"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="tree t1"></div><div class="tree t2"></div><div class="tree t3"></div><div class="tree t4"></div><div class="tree t5"></div></div>
+          <div class="visual-tag tag-left"><span>↗</span><small>FORECAST</small><b>4 hour horizon</b></div><div class="visual-tag tag-right"><span class="tag-pulse"></span><small>GRID SIGNAL</small><b>IN-WE · observed</b></div>
+          <div class="hero-stat"><small>COMMON-TASK DIFFERENCE</small><b id="hero-savings">—</b><span>TRACE vs FIFO · observed carbon</span></div>
+        </div>
+        <div class="hero-stamp"><span>TRACE</span><b>01</b></div>
+      </section>
+      <div class="section-heading"><div><div class="eyebrow muted">EXPERIMENT AT A GLANCE</div><h2>Measured outcomes</h2></div><span class="data-badge"><i></i> REAL EXPERIMENT DATA</span></div>
+      <div class="kpi-grid">
+        <article class="kpi-card"><div class="kpi-top"><span class="kpi-icon green">▤</span><span class="kpi-label">Tasks processed</span><span class="kpi-more">···</span></div><div class="kpi-value" id="kpi-processed">—</div><div class="kpi-foot"><span class="neutral-tag">FULL WORKLOAD</span><span class="kpi-context">across 3 strategies</span></div><div class="kpi-spark spark-green"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article>
+        <article class="kpi-card"><div class="kpi-top"><span class="kpi-icon amber">ϟ</span><span class="kpi-label">TRACE energy</span><span class="kpi-more">···</span></div><div class="kpi-value"><span id="kpi-energy">—</span><small>kWh</small></div><div class="kpi-foot"><span class="neutral-tag">MODELLED</span><span class="kpi-context">10 W per core assumption</span></div><div class="kpi-spark spark-amber"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article>
+        <article class="kpi-card"><div class="kpi-top"><span class="kpi-icon blue">◌</span><span class="kpi-label">TRACE emissions</span><span class="kpi-more">···</span></div><div class="kpi-value"><span id="kpi-emissions">—</span><small>g CO₂e</small></div><div class="kpi-foot"><span class="neutral-tag">OBSERVED CARBON</span><span class="kpi-context">covered executed tasks</span></div><div class="kpi-spark spark-blue"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article>
+        <article class="kpi-card"><div class="kpi-top"><span class="kpi-icon violet">◴</span><span class="kpi-label">TRACE completion</span><span class="kpi-more">···</span></div><div class="kpi-value"><span id="kpi-completion">—</span><small>%</small></div><div class="kpi-foot"><span class="neutral-tag">OF PROCESSED</span><span class="kpi-context" id="kpi-completed-caption">—</span></div><div class="kpi-spark spark-violet"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article>
+        <article class="kpi-card compact-kpi"><div class="kpi-top"><span class="kpi-icon green">✓</span><span class="kpi-label">Completed</span><span class="kpi-more">TRACE</span></div><div class="kpi-value" id="kpi-done">—</div><div class="kpi-foot"><span class="neutral-tag">EXECUTED</span><span class="kpi-context">carbon covered</span></div></article>
+        <article class="kpi-card compact-kpi"><div class="kpi-top"><span class="kpi-icon amber">◷</span><span class="kpi-label">Deferred</span><span class="kpi-more">TRACE</span></div><div class="kpi-value" id="kpi-deferred">—</div><div class="kpi-foot"><span class="neutral-tag">MAX DELAY</span><span class="kpi-context">slot unavailable</span></div></article>
+        <article class="kpi-card compact-kpi"><div class="kpi-top"><span class="kpi-icon blue">▱</span><span class="kpi-label">Forecast eligible</span><span class="kpi-more">REPLAY</span></div><div class="kpi-value" id="kpi-forecast-eligible">—</div><div class="kpi-foot"><span class="neutral-tag">HISTORICAL</span><span class="kpi-context">of processed tasks</span></div></article>
+        <article class="kpi-card compact-kpi"><div class="kpi-top"><span class="kpi-icon violet">◉</span><span class="kpi-label">CPU utilization</span><span class="kpi-more">TRACE</span></div><div class="kpi-value"><span id="kpi-utilization">—</span><small>%</small></div><div class="kpi-foot"><span class="neutral-tag">AVERAGE</span><span class="kpi-context">scheduled envelope</span></div></article>
+      </div>
+      <div class="dashboard-grid main-grid">
+        <article class="panel chart-panel strategy-panel"><div class="card-heading"><div><div class="eyebrow muted">POLICY COMPARISON</div><h3>Three strategies, observed outcomes</h3><p>Whole-run emissions depend on each strategy's completed task population.</p></div><select id="comparison-metric" aria-label="Comparison metric"><option value="emissions">Observed emissions</option><option value="energy">Modelled energy</option><option value="completed">Completed tasks</option><option value="deferred">Deferred tasks</option><option value="infeasible">Infeasible tasks</option><option value="utilization">CPU utilization</option><option value="completion">Completion rate</option></select></div>
+          <div class="chart-legend"><span><i class="legend-swatch fifo"></i>FIFO</span><span><i class="legend-swatch earliest"></i>Earliest-feasible</span><span><i class="legend-swatch trace"></i>Forecast-guided TRACE</span></div><div id="strategy-chart" class="chart-area"></div><div class="chart-note"><span class="note-icon">i</span><span>For like-for-like emissions, see the common-task comparison below. Strategies completed different populations.</span></div>
+        </article>
+        <article class="panel insight-panel"><div class="card-heading"><div><div class="eyebrow muted">CARBON INTELLIGENCE</div><h3>Common-task comparison</h3></div><span class="insight-mark">✳</span></div><div class="common-number" id="common-savings">—<small>%</small></div><div class="common-caption">lower observed emissions for TRACE vs FIFO on the shared completed task set</div><div class="common-pop"><span>Shared task IDs</span><b id="common-count">—</b></div><div id="common-bars" class="comparison-bars"></div><div class="caution-note"><span>!</span><span>This 0.004% difference is small. It does not establish general superiority.</span></div><a class="text-link" href="#results" data-view="results">View full comparison <span>→</span></a></article>
+      </div>
+      <div class="dashboard-grid lower-grid">
+        <article class="panel chart-panel forecast-panel"><div class="card-heading"><div><div class="eyebrow muted">GRID CARBON SIGNAL</div><h3>Observed intensity & replay forecast</h3><p>IN-WE · gCO₂e/kWh · historical replay</p></div><span class="range-chip">SEP 22 — SEP 30</span></div><div class="chart-legend"><span><i class="legend-line observed"></i>Observed</span><span><i class="legend-line forecast"></i>Replay forecast</span><span><i class="legend-band"></i>Prediction interval</span></div><div id="forecast-chart" class="chart-area forecast-chart"></div><div class="chart-footnote">Historical forecasts scored against held-out observations. No live forecast connection.</div></article>
+        <article class="panel execution-panel"><div class="card-heading"><div><div class="eyebrow muted">EXECUTION OVERVIEW</div><h3>Processed workload</h3></div><span class="status-complete"><i></i> RUN COMPLETE</span></div><div class="execution-total"><b id="execution-total">—</b><span>tasks evaluated</span></div><div class="progress-track"><i id="completion-progress"></i></div><div class="execution-stats"><div><span class="status-dot done"></span><span>Completed by TRACE</span><b id="exec-done">—</b></div><div><span class="status-dot pending"></span><span>Deferred</span><b id="exec-deferred">—</b></div><div><span class="status-dot infeasible"></span><span>Infeasible</span><b id="exec-infeasible">—</b></div></div><div class="execution-meta"><span>CPU capacity</span><b id="cpu-capacity">—</b><span>Constraint violations</span><b id="constraint-violations">—</b></div><a class="text-link" href="#execution" data-view="execution">Explore task outcomes <span>→</span></a></article>
+      </div>
+      <div class="research-strip" id="research-strip">
+        <article class="research-tile"><span class="tile-kicker">FORECAST QUALITY · 160 REPLAY ROWS</span><b id="tile-forecast-mae">—</b><small>all-horizon MAE · gCO₂e/kWh</small><div class="tile-sparkline">⌁</div></article>
+        <article class="research-tile"><span class="tile-kicker">INDEPENDENT LEDGER AUDIT</span><b id="tile-audit">—</b><small id="tile-audit-caption">strategy ledgers reconciled</small><div class="tile-check">✓</div></article>
+        <article class="research-tile"><span class="tile-kicker">OBSERVED GRID SIGNAL · IN-WE</span><b id="tile-carbon-range">—</b><small>range · gCO₂e/kWh · hourly observations</small><div class="tile-sparkline">↗</div></article>
+        <article class="research-tile"><span class="tile-kicker">TRACE FORECAST PATH</span><b id="tile-fallbacks">—</b><small>fallback decisions · only 3 forecast reschedules</small><div class="tile-sparkline">◎</div></article>
+      </div>
+      <article class="panel compact-results"><div class="card-heading"><div><div class="eyebrow muted">PHASE 6 · FULL WORKLOAD</div><h3>Strategy outcome snapshot</h3></div><a class="text-link" href="#results" data-view="results">Open results <span>→</span></a></div><div class="table-wrap"><table class="data-table"><thead><tr><th>STRATEGY</th><th>COMPLETED</th><th>DEFERRED</th><th>ENERGY · MODELLED</th><th>EMISSIONS · OBSERVED</th><th>CPU USE</th></tr></thead><tbody id="overview-results"></tbody></table></div><div class="table-note">Full-run totals reflect strategy-specific completed populations; use the shared task comparison for like-for-like emissions.</div></article>
+      <footer class="page-footer"><span>TRACE <i>·</i> TEMPORAL RISK-AWARE ADAPTIVE CARBON ENGINE</span><span id="footer-updated">LOCAL EXPERIMENT ARTIFACTS</span></footer>
+    </section>
+    <section class="page-view detail-view" id="view-simulation" data-page="simulation"></section>
+    <section class="page-view detail-view" id="view-strategies" data-page="strategies"></section>
+    <section class="page-view detail-view" id="view-forecasting" data-page="forecasting"></section>
+    <section class="page-view detail-view" id="view-energy" data-page="energy"></section>
+    <section class="page-view detail-view" id="view-execution" data-page="execution"></section>
+    <section class="page-view detail-view" id="view-results" data-page="results"></section>
+    <section class="page-view detail-view" id="view-validation" data-page="validation"></section>
+    <section class="page-view detail-view" id="view-reproducibility" data-page="reproducibility"></section>
+  </main>
+</div><script src="/app.js" defer></script>
+</body></html>
