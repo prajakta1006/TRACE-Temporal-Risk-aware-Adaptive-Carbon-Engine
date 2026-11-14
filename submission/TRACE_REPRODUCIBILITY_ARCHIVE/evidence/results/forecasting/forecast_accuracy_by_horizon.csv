@@ -1,0 +1,16 @@
+model,horizon_hours,prediction_count,mae,rmse,mean_error_bias,prediction_interval_coverage,average_interval_width
+rolling_seasonal_naive_24h,1,40,6.275,7.2989725304319375,2.025,1.0,158.0
+persistence_at_origin,1,40,19.075,29.251068356557507,-4.825,,
+seasonal_naive_24h_baseline,1,40,6.275,7.2989725304319375,2.025,,
+rolling_seasonal_naive_24h,2,40,6.0,6.7712628068920795,2.7,1.0,158.0
+persistence_at_origin,2,40,36.975,55.96673118916273,-10.375,,
+seasonal_naive_24h_baseline,2,40,6.0,6.7712628068920795,2.7,,
+rolling_seasonal_naive_24h,3,40,6.075,6.831910420958401,2.975,1.0,158.0
+persistence_at_origin,3,40,54.375,79.78486698616474,-16.125,,
+seasonal_naive_24h_baseline,3,40,6.075,6.831910420958401,2.975,,
+rolling_seasonal_naive_24h,4,40,6.15,6.870225614927067,3.15,1.0,158.0
+persistence_at_origin,4,40,71.125,100.28870823776722,-22.075,,
+seasonal_naive_24h_baseline,4,40,6.15,6.870225614927067,3.15,,
+rolling_seasonal_naive_24h,all,160,6.125,6.946221994724902,2.7125,1.0,158.0
+persistence_at_origin,all,160,45.3875,71.43414799659894,-13.35,,
+seasonal_naive_24h_baseline,all,160,6.125,6.946221994724902,2.7125,,

@@ -1,0 +1,41 @@
+metric,value
+total_source_rows,13288830
+valid_rows,13288830
+invalid_rows,0
+duplicate_rows,0
+excluded_rows,0
+chunks_processed,133
+missing_values_by_column,"{""job_name"": 0, ""task_name"": 0, ""task_type"": 0, ""start_time"": 0, ""end_time"": 0, ""duration_seconds"": 0, ""duration_hours"": 0, ""cpu_cores"": 0}"
+invalid_start_time_rows,0
+invalid_end_time_rows,0
+invalid_duration_rows,0
+nonpositive_duration_rows,0
+invalid_cpu_rows,0
+negative_cpu_rows,0
+tasks_exceeding_cpu_capacity,72
+duration_mismatch_rows,0
+tasks_outside_carbon_timeline,0
+minimum_start_time_seconds,3297.0
+maximum_start_time_seconds,765880.0
+minimum_end_time_seconds,3301.0
+maximum_end_time_seconds,772823.0
+maximum_duration_seconds,461302.0
+maximum_cpu_requirement,10.0
+elapsed_runtime_seconds,250.4790956999932
+peak_memory_bytes,267902976
+temporary_disk_bytes_peak,2954857031
+completed,True
+input_path,<PROJECT_ROOT>\data\processed\workload\workload_cleaned.csv
+input_sha256,6bbc0b8005b32e16872069a646e8c2a37b85b54282593d0a52a266d369e37277
+execution_timestamp_utc,2026-11-10T08:10:31.577660+00:00
+completed_timestamp_utc,2026-11-10T08:14:40.945822+00:00
+validation_configuration,"{""cpu_capacity"": 8.0, ""duration_tolerance_seconds"": 1.0, ""chunk_size"": 100000, ""task_id_prefix"": ""trace-task-"", ""carbon_timeline_hours"": 216, ""carbon_zone"": ""IN-WE"", ""carbon_start_timestamp_utc"": ""2026-09-22 00:00:00+00:00""}"
+simulation_time_unit,seconds relative to the first observed carbon timestamp
+carbon_timeline_hours,216
+carbon_zone,IN-WE
+carbon_start_timestamp_utc,2026-09-22 00:00:00+00:00
+rows_per_second,53053.64889977268
+temporary_directory,<PROJECT_ROOT>\results\validation\_validation_work
+chronological_output,<PROJECT_ROOT>\results\validation\chronological_tasks.csv
+invalid_rows_output,<PROJECT_ROOT>\results\validation\invalid_rows.csv
+duplicate_rows_output,<PROJECT_ROOT>\results\validation\duplicate_rows.csv

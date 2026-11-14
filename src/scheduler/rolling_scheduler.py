@@ -22,23 +22,26 @@ def select_task_candidate_at_origin(
     risk_weight: float = 0.5,
 ) -> dict | None:
     """
-    Select a task candidate using only one rolling forecast origin.
+    Select a task candidate using one rolling forecast origin.
 
     Tasks whose complete baseline or candidate execution periods are not
     covered by the selected forecast are not rescheduled.
     """
 
-    if forecast_hours != 4:
+    if not 1 <= forecast_hours <= 4:
         raise ValueError(
-            "This rolling integration currently expects a four-hour horizon."
+            "This rolling integration supports horizons from one to four hours."
         )
 
-    # Select the four forecasts generated at this replanning origin.
+    # Select only the requested lead times from this replanning origin.
     origin_forecasts = select_forecast_origin(
         rolling_forecasts,
         forecast_origin_utc,
     )
 
+    origin_forecasts = origin_forecasts.loc[
+        origin_forecasts["horizon_hours"] <= forecast_hours
+    ].copy()
     if len(origin_forecasts) != forecast_hours:
         raise ValueError(
             f"Expected {forecast_hours} forecasts for this origin, "
@@ -49,7 +52,7 @@ def select_task_candidate_at_origin(
 
     if origin_forecasts["horizon_hours"].tolist() != expected_horizons:
         raise ValueError(
-            "Forecast origin must contain horizons 1, 2, 3 and 4."
+            f"Forecast origin must contain horizons 1 through {forecast_hours}."
         )
 
     # Convert the forecast origin into simulation seconds.

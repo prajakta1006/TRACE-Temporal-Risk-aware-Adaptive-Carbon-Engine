@@ -1,0 +1,1 @@
+source_row,task_id,job_name,task_name,task_type,start_time,end_time,duration_seconds,duration_hours,cpu_cores,validation_errors

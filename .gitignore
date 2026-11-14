@@ -24,3 +24,11 @@ Thumbs.db
 # Generated exploratory analysis and forecasting outputs
 results/carbon_eda/
 results/forecasting/
+results/simulation/
+results/evaluation/
+results/experiments/
+results/figures/
+results/validation*/
+results/benchmark_scheduler/
+results/benchmark_scheduler_phase5/
+results/phase6/

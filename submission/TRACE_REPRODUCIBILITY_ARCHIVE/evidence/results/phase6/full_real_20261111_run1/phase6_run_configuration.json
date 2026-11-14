@@ -1,0 +1,25 @@
+
+{
+  "workload_path": "<PROJECT_ROOT>/results/validation/chronological_tasks.csv",
+  "workload_sha256": "592cfe26479be3a0a4b44f76db3f008af7f8d1915d7c27aee5feab404a3ac29f",
+  "carbon_path": "<PROJECT_ROOT>/data/raw/carbon/india_west_carbon_intensity.csv",
+  "carbon_sha256": "d6b4eaf55d2118e5f8e4096971bb4aea75f6f87d8281f0cb9a9d672e5c468108",
+  "forecast_path": "<PROJECT_ROOT>/results/forecasting/rolling_seasonal_naive_forecasts.csv",
+  "forecast_sha256": "21ee3247a2e253e65718de08bc738ea6f47aaad6b466c66b02607ae53ed411da",
+  "zone": "IN-WE",
+  "strategies": [
+    "fifo",
+    "earliest_feasible",
+    "trace"
+  ],
+  "simulation": {
+    "cpu_capacity": 8.0,
+    "max_delay_seconds": 3600.0,
+    "forecast_horizon": 4,
+    "risk_weight": 0.5,
+    "power_per_core_watts": 10.0
+  },
+  "checkpoint_interval": 10000,
+  "sampling": "complete validated chronological workload; no task limit",
+  "created_utc": "2026-11-11T17:35:03.682996+00:00"
+}

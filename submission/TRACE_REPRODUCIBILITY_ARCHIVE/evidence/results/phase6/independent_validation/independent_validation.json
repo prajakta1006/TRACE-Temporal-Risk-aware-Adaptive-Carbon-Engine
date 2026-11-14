@@ -1,0 +1,143 @@
+{
+  "completed": true,
+  "independent": true,
+  "workload_path": "C:\\Users\\anuja\\Projects\\TRACE-Temporal-Risk-aware-Adaptive-Carbon-Engine\\results\\validation\\chronological_tasks.csv",
+  "workload_rows": 13288830,
+  "checkpoint_processed_tasks": 13288830,
+  "checkpoint_completed": true,
+  "checkpoint_last_task_id": "trace-task-000003743840",
+  "strategies": {
+    "fifo": {
+      "path": "C:\\Users\\anuja\\Projects\\TRACE-Temporal-Risk-aware-Adaptive-Carbon-Engine\\results\\phase6\\full_real_20261111_run1\\fifo_schedule.csv",
+      "row_count": 13288830,
+      "expected_row_count": 13288830,
+      "unique_id_count": 13288830,
+      "duplicate_id_count": 0,
+      "missing_id_count": 0,
+      "unexpected_id_count": 0,
+      "id_sequence_error_count": 0,
+      "source_row_identity_error_count": 0,
+      "sha256": "963c71f6ccc17e41afada743b081f230cc7e6344b2a9ee9c27efcc67836a47bc",
+      "byte_size": 2651050363,
+      "checkpoint_offset": 2651050363,
+      "checkpoint_offset_agrees": true,
+      "task_status_counts": {
+        "executed": 297143,
+        "deferred": 12991615,
+        "infeasible": 72
+      },
+      "forecast_status_counts": {
+        "ineligible": 11589716,
+        "eligible": 1699114
+      },
+      "forecast_reason_counts": {
+        "missing_forecast_origin": 11589436,
+        "covered_at_origin": 1699114,
+        "incomplete_origin_coverage": 280
+      },
+      "decision_counts": {
+        "earliest_feasible": 297143,
+        "no_capacity_slot_within_max_delay": 12991615,
+        "cpu_request_exceeds_capacity": 72
+      },
+      "forecast_fallback_decisions": 0,
+      "scheduled_energy_kwh": 15.07839013886452,
+      "scheduled_observed_emissions_g_co2e": 9176.978087361686,
+      "emissions_covered_tasks": 297143,
+      "emissions_coverage_missing_tasks": 0,
+      "capacity_violations": 0,
+      "task_constraint_violations": 0,
+      "independent_peak_allocated_cores": 8.0,
+      "passed": true
+    },
+    "earliest_feasible": {
+      "path": "C:\\Users\\anuja\\Projects\\TRACE-Temporal-Risk-aware-Adaptive-Carbon-Engine\\results\\phase6\\full_real_20261111_run1\\earliest_feasible_schedule.csv",
+      "row_count": 13288830,
+      "expected_row_count": 13288830,
+      "unique_id_count": 13288830,
+      "duplicate_id_count": 0,
+      "missing_id_count": 0,
+      "unexpected_id_count": 0,
+      "id_sequence_error_count": 0,
+      "source_row_identity_error_count": 0,
+      "sha256": "879f5c814c58992bf9d0b46b5a50f2e7199c2dcf53f14d5730ffb14a81794447",
+      "byte_size": 2651309891,
+      "checkpoint_offset": 2651309891,
+      "checkpoint_offset_agrees": true,
+      "task_status_counts": {
+        "executed": 313268,
+        "deferred": 12975490,
+        "infeasible": 72
+      },
+      "forecast_status_counts": {
+        "ineligible": 11589716,
+        "eligible": 1699114
+      },
+      "forecast_reason_counts": {
+        "missing_forecast_origin": 11589436,
+        "covered_at_origin": 1699114,
+        "incomplete_origin_coverage": 280
+      },
+      "decision_counts": {
+        "earliest_feasible": 313268,
+        "no_capacity_slot_within_max_delay": 12975490,
+        "cpu_request_exceeds_capacity": 72
+      },
+      "forecast_fallback_decisions": 0,
+      "scheduled_energy_kwh": 15.159375277750144,
+      "scheduled_observed_emissions_g_co2e": 9226.892076389486,
+      "emissions_covered_tasks": 313268,
+      "emissions_coverage_missing_tasks": 0,
+      "capacity_violations": 0,
+      "task_constraint_violations": 0,
+      "independent_peak_allocated_cores": 8.0,
+      "passed": true
+    },
+    "trace": {
+      "path": "C:\\Users\\anuja\\Projects\\TRACE-Temporal-Risk-aware-Adaptive-Carbon-Engine\\results\\phase6\\full_real_20261111_run1\\trace_schedule.csv",
+      "row_count": 13288830,
+      "expected_row_count": 13288830,
+      "unique_id_count": 13288830,
+      "duplicate_id_count": 0,
+      "missing_id_count": 0,
+      "unexpected_id_count": 0,
+      "id_sequence_error_count": 0,
+      "source_row_identity_error_count": 0,
+      "sha256": "44be2d5b4369d6722a8dba09b3e6ab84ed2bde10407b04c09d430eda6724b78e",
+      "byte_size": 2656068257,
+      "checkpoint_offset": 2656068257,
+      "checkpoint_offset_agrees": true,
+      "task_status_counts": {
+        "executed": 313268,
+        "deferred": 12975490,
+        "infeasible": 72
+      },
+      "forecast_status_counts": {
+        "ineligible": 11589716,
+        "eligible": 1699114
+      },
+      "forecast_reason_counts": {
+        "missing_forecast_origin": 11589436,
+        "covered_at_origin": 1699114,
+        "incomplete_origin_coverage": 280
+      },
+      "decision_counts": {
+        "fallback_missing_forecast_origin": 253870,
+        "no_capacity_slot_within_max_delay": 12975490,
+        "cpu_request_exceeds_capacity": 72,
+        "fallback_no_positive_risk_savings": 59392,
+        "fallback_incomplete_origin_coverage": 3,
+        "forecast_rescheduled": 3
+      },
+      "forecast_fallback_decisions": 11649044,
+      "scheduled_energy_kwh": 15.159375277750144,
+      "scheduled_observed_emissions_g_co2e": 9226.708951389486,
+      "emissions_covered_tasks": 313268,
+      "emissions_coverage_missing_tasks": 0,
+      "capacity_violations": 0,
+      "task_constraint_violations": 0,
+      "independent_peak_allocated_cores": 8.0,
+      "passed": true
+    }
+  }
+}

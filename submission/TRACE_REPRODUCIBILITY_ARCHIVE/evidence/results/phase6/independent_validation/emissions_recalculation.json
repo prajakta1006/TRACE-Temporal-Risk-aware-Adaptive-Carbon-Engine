@@ -1,0 +1,45 @@
+{
+  "completed": true,
+  "carbon_input": "C:\\Users\\anuja\\Projects\\TRACE-Temporal-Risk-aware-Adaptive-Carbon-Engine\\data\\raw\\carbon\\india_west_carbon_intensity.csv",
+  "carbon_zone": "IN-WE",
+  "carbon_rows": 216,
+  "formula": "energy_kwh = duration_seconds * cpu_cores * 10 W / 3,600,000; emissions_g = sum(energy_kwh * hourly_overlap_fraction * observed_carbon_intensity_g_per_kwh)",
+  "strategies": {
+    "fifo": {
+      "task_population": "all rows with task_status=executed; emissions calculated only when the full scheduled interval is covered by observed IN-WE carbon",
+      "executed_tasks": 297143,
+      "observed_carbon_covered_tasks": 297143,
+      "outside_carbon_tasks": 0,
+      "power_assumption_watts_per_core": 10.0,
+      "recomputed_energy_kwh": 15.07839013886452,
+      "maximum_per_task_energy_difference_kwh": 5.551115123125783e-17,
+      "recomputed_observed_emissions_g_co2e": 9176.978087361686,
+      "maximum_per_task_emissions_difference_g": 5.684341886080802e-14,
+      "passed": true
+    },
+    "earliest_feasible": {
+      "task_population": "all rows with task_status=executed; emissions calculated only when the full scheduled interval is covered by observed IN-WE carbon",
+      "executed_tasks": 313268,
+      "observed_carbon_covered_tasks": 313268,
+      "outside_carbon_tasks": 0,
+      "power_assumption_watts_per_core": 10.0,
+      "recomputed_energy_kwh": 15.159375277750144,
+      "maximum_per_task_energy_difference_kwh": 5.551115123125783e-17,
+      "recomputed_observed_emissions_g_co2e": 9226.892076389484,
+      "maximum_per_task_emissions_difference_g": 5.684341886080802e-14,
+      "passed": true
+    },
+    "trace": {
+      "task_population": "all rows with task_status=executed; emissions calculated only when the full scheduled interval is covered by observed IN-WE carbon",
+      "executed_tasks": 313268,
+      "observed_carbon_covered_tasks": 313268,
+      "outside_carbon_tasks": 0,
+      "power_assumption_watts_per_core": 10.0,
+      "recomputed_energy_kwh": 15.159375277750144,
+      "maximum_per_task_energy_difference_kwh": 5.551115123125783e-17,
+      "recomputed_observed_emissions_g_co2e": 9226.708951389484,
+      "maximum_per_task_emissions_difference_g": 5.684341886080802e-14,
+      "passed": true
+    }
+  }
+}

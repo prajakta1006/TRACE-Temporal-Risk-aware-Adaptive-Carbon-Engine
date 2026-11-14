@@ -1,0 +1,52 @@
+{
+  "completed": true,
+  "checkpoint_processed_tasks": 13288830,
+  "checkpoint_completed": true,
+  "checkpoint_last_task_id": "trace-task-000003743840",
+  "comparison_source": "C:\\Users\\anuja\\Projects\\TRACE-Temporal-Risk-aware-Adaptive-Carbon-Engine\\results\\phase6\\full_real_20261111_run1\\final_evaluation.json",
+  "strategies": {
+    "fifo": {
+      "processed_rows_match": true,
+      "task_states_match": true,
+      "deferred_match": true,
+      "infeasible_match": true,
+      "emissions_covered_population_match": true,
+      "emissions_missing_population_match": true,
+      "energy_match": true,
+      "observed_emissions_match": true,
+      "checkpoint_offset_match": true,
+      "ledger_integrity_passed": true
+    },
+    "earliest_feasible": {
+      "processed_rows_match": true,
+      "task_states_match": true,
+      "deferred_match": true,
+      "infeasible_match": true,
+      "emissions_covered_population_match": true,
+      "emissions_missing_population_match": true,
+      "energy_match": true,
+      "observed_emissions_match": true,
+      "checkpoint_offset_match": true,
+      "ledger_integrity_passed": true
+    },
+    "trace": {
+      "processed_rows_match": true,
+      "task_states_match": true,
+      "deferred_match": true,
+      "infeasible_match": true,
+      "emissions_covered_population_match": true,
+      "emissions_missing_population_match": true,
+      "energy_match": true,
+      "observed_emissions_match": true,
+      "checkpoint_offset_match": true,
+      "ledger_integrity_passed": true
+    }
+  },
+  "common_executed_population": 165474,
+  "common_observed_emissions_population": 165474,
+  "common_population_emissions_g_co2e": {
+    "fifo": 4553.7721179164155,
+    "earliest_feasible": 4553.771629305303,
+    "trace": 4553.588504305302
+  }
+}

@@ -1,0 +1,227 @@
+{
+  "completed": true,
+  "tasks_processed": 13288830,
+  "runtime_seconds": 10127.162612100015,
+  "peak_rss_bytes": 111738880,
+  "observed_carbon_only": true,
+  "population_definitions": {
+    "whole_run": "All rows scheduled and executed by each strategy; observed emissions sum only rows whose full task interval is covered by observed carbon.",
+    "common_population": "Task IDs executed by all three strategies and fully covered by observed carbon for all three schedules."
+  },
+  "strategy_results": {
+    "fifo": {
+      "tasks_processed": 13288830,
+      "task_status_counts": {
+        "executed": 297143,
+        "deferred": 12991615,
+        "infeasible": 72
+      },
+      "forecast_status_counts": {
+        "ineligible": 11589716,
+        "eligible": 1699114
+      },
+      "forecast_eligible_tasks": 1699114,
+      "forecast_ineligible_tasks": 11589716,
+      "forecast_reason_counts": {
+        "missing_forecast_origin": 11589436,
+        "covered_at_origin": 1699114,
+        "incomplete_origin_coverage": 280
+      },
+      "decision_counts": {
+        "earliest_feasible": 297143,
+        "no_capacity_slot_within_max_delay": 12991615,
+        "cpu_request_exceeds_capacity": 72
+      },
+      "forecast_fallback_decisions": 0,
+      "scheduled_tasks": 297143,
+      "completed_tasks": 297143,
+      "pending_tasks_at_end": 0,
+      "rejected_tasks": 12991687,
+      "deferred_tasks": 12991615,
+      "infeasible_tasks": 72,
+      "duplicate_prevented_tasks": 0,
+      "completion_rate": 0.02236035828586866,
+      "scheduled_energy_kwh": 15.07839013886452,
+      "completed_energy_kwh": 15.07839013886452,
+      "scheduled_observed_emissions_g_co2e": 9176.978087361686,
+      "completed_observed_emissions_g_co2e": 9176.978087361686,
+      "emissions_covered_tasks": 297143,
+      "emissions_coverage_missing_tasks": 0,
+      "delay_seconds_histogram": {
+        "zero": 52,
+        "0-60s": 12,
+        "60-300s": 6,
+        "300-900s": 1,
+        "900-1800s": 7,
+        "1800-3600s": 297065,
+        ">3600s": 0
+      },
+      "mean_delay_seconds_scheduled_tasks": 3598.1089307168604,
+      "maximum_delay_seconds": 3600.0,
+      "allocated_core_seconds": 5428220.449998034,
+      "scheduled_time_span_seconds": 763029.0,
+      "average_capacity_utilization_fraction": 0.8892552658545799,
+      "capacity_violations": 0,
+      "task_constraint_violations": 0,
+      "independent_peak_allocated_cores": 8.0
+    },
+    "earliest_feasible": {
+      "tasks_processed": 13288830,
+      "task_status_counts": {
+        "executed": 313268,
+        "deferred": 12975490,
+        "infeasible": 72
+      },
+      "forecast_status_counts": {
+        "ineligible": 11589716,
+        "eligible": 1699114
+      },
+      "forecast_eligible_tasks": 1699114,
+      "forecast_ineligible_tasks": 11589716,
+      "forecast_reason_counts": {
+        "missing_forecast_origin": 11589436,
+        "covered_at_origin": 1699114,
+        "incomplete_origin_coverage": 280
+      },
+      "decision_counts": {
+        "earliest_feasible": 313268,
+        "no_capacity_slot_within_max_delay": 12975490,
+        "cpu_request_exceeds_capacity": 72
+      },
+      "forecast_fallback_decisions": 0,
+      "scheduled_tasks": 313268,
+      "completed_tasks": 313268,
+      "pending_tasks_at_end": 0,
+      "rejected_tasks": 12975562,
+      "deferred_tasks": 12975490,
+      "infeasible_tasks": 72,
+      "duplicate_prevented_tasks": 0,
+      "completion_rate": 0.023573783395528423,
+      "scheduled_energy_kwh": 15.159375277750144,
+      "completed_energy_kwh": 15.159375277750144,
+      "scheduled_observed_emissions_g_co2e": 9226.892076389486,
+      "completed_observed_emissions_g_co2e": 9226.892076389486,
+      "emissions_covered_tasks": 313268,
+      "emissions_coverage_missing_tasks": 0,
+      "delay_seconds_histogram": {
+        "zero": 52,
+        "0-60s": 88,
+        "60-300s": 69,
+        "300-900s": 43,
+        "900-1800s": 134,
+        "1800-3600s": 312882,
+        ">3600s": 0
+      },
+      "mean_delay_seconds_scheduled_tasks": 3586.866513656039,
+      "maximum_delay_seconds": 3600.0,
+      "allocated_core_seconds": 5457375.099998278,
+      "scheduled_time_span_seconds": 763029.0,
+      "average_capacity_utilization_fraction": 0.8940314031311847,
+      "capacity_violations": 0,
+      "task_constraint_violations": 0,
+      "independent_peak_allocated_cores": 8.0
+    },
+    "trace": {
+      "tasks_processed": 13288830,
+      "task_status_counts": {
+        "executed": 313268,
+        "deferred": 12975490,
+        "infeasible": 72
+      },
+      "forecast_status_counts": {
+        "ineligible": 11589716,
+        "eligible": 1699114
+      },
+      "forecast_eligible_tasks": 1699114,
+      "forecast_ineligible_tasks": 11589716,
+      "forecast_reason_counts": {
+        "missing_forecast_origin": 11589436,
+        "covered_at_origin": 1699114,
+        "incomplete_origin_coverage": 280
+      },
+      "decision_counts": {
+        "fallback_missing_forecast_origin": 253870,
+        "no_capacity_slot_within_max_delay": 12975490,
+        "cpu_request_exceeds_capacity": 72,
+        "fallback_no_positive_risk_savings": 59392,
+        "fallback_incomplete_origin_coverage": 3,
+        "forecast_rescheduled": 3
+      },
+      "forecast_fallback_decisions": 11649044,
+      "scheduled_tasks": 313268,
+      "completed_tasks": 313268,
+      "pending_tasks_at_end": 0,
+      "rejected_tasks": 12975562,
+      "deferred_tasks": 12975490,
+      "infeasible_tasks": 72,
+      "duplicate_prevented_tasks": 0,
+      "completion_rate": 0.023573783395528423,
+      "scheduled_energy_kwh": 15.159375277750144,
+      "completed_energy_kwh": 15.159375277750144,
+      "scheduled_observed_emissions_g_co2e": 9226.708951389486,
+      "completed_observed_emissions_g_co2e": 9226.708951389486,
+      "emissions_covered_tasks": 313268,
+      "emissions_coverage_missing_tasks": 0,
+      "delay_seconds_histogram": {
+        "zero": 49,
+        "0-60s": 88,
+        "60-300s": 69,
+        "300-900s": 43,
+        "900-1800s": 134,
+        "1800-3600s": 312885,
+        ">3600s": 0
+      },
+      "mean_delay_seconds_scheduled_tasks": 3586.8907612651146,
+      "maximum_delay_seconds": 3600.0,
+      "allocated_core_seconds": 5457375.099998278,
+      "scheduled_time_span_seconds": 763029.0,
+      "average_capacity_utilization_fraction": 0.8940314031311847,
+      "capacity_violations": 0,
+      "task_constraint_violations": 0,
+      "independent_peak_allocated_cores": 8.0
+    }
+  },
+  "common_population": {
+    "common_executed_tasks": 165474,
+    "common_observed_emissions_tasks": 165474,
+    "common_population_observed_emissions_g_co2e": {
+      "fifo": 4553.7721179164155,
+      "earliest_feasible": 4553.771629305303,
+      "trace": 4553.588504305302
+    }
+  },
+  "whole_run_emissions_comparison_vs_fifo": {
+    "fifo": {
+      "difference_vs_fifo_g_co2e": 0.0,
+      "percent_difference_vs_fifo": 0.0
+    },
+    "earliest_feasible": {
+      "difference_vs_fifo_g_co2e": 49.9139890278002,
+      "percent_difference_vs_fifo": 0.543904415512777
+    },
+    "trace": {
+      "difference_vs_fifo_g_co2e": 49.730864027800635,
+      "percent_difference_vs_fifo": 0.5419089329230151
+    }
+  },
+  "common_population_emissions_comparison_vs_fifo": {
+    "fifo": {
+      "difference_vs_fifo_g_co2e": 0.0,
+      "percent_difference_vs_fifo": 0.0
+    },
+    "earliest_feasible": {
+      "difference_vs_fifo_g_co2e": -0.0004886111128143966,
+      "percent_difference_vs_fifo": -1.0729810367365534e-05
+    },
+    "trace": {
+      "difference_vs_fifo_g_co2e": -0.18361361111328733,
+      "percent_difference_vs_fifo": -0.004032121203230082
+    }
+  },
+  "limitations": [
+    "Emissions outside the observed carbon timeline are not imputed.",
+    "Forecast replay is historical; it does not establish live forecast availability.",
+    "Uncertainty intervals are used as a risk penalty and are not claimed to be calibrated.",
+    "Capacity utilization is average allocated core-seconds over each strategy's scheduled time envelope."
+  ]
+}
